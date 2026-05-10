@@ -1,4 +1,24 @@
+# Dependencias
 node_modules/
+
+# Build
 dist/
-.DS_Store
+
+# Variables de entorno (contienen claves de Supabase)
 *.local
+.env
+.env.*
+
+# Documentos Word y temporales de Office
+*.docx
+*.doc
+~$*.docx
+~$*.doc
+~WRL*.tmp
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.claude/

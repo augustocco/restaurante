@@ -10,7 +10,11 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "docx": "^9.6.1",
     "svelte": "^4.2.18",
     "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4"
   }
 }
