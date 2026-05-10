@@ -5,11 +5,8 @@
   let email    = "";
   let password = "";
   let name     = "";
-  let role     = "Cliente";
   let error    = "";
   let loading  = false;
-
-  const ROLES = ["Cliente", "Mesero", "Administrador"];
 
   const DEMO = [
     { role: "Administrador", email: "admin@sabormesa.com",   password: "admin123"   },
@@ -35,7 +32,7 @@
     } else {
       if (!name.trim() || !email.trim() || !password) { error = "Completa todos los campos."; loading = false; return; }
       if (password.length < 6) { error = "La contraseña debe tener al menos 6 caracteres."; loading = false; return; }
-      const result = await restaurantStore.register(name.trim(), email.trim(), password, role);
+      const result = await restaurantStore.register(name.trim(), email.trim(), password, "Cliente");
       if (!result.ok) error = result.message;
     }
     loading = false;
@@ -109,16 +106,6 @@
         />
       </label>
 
-      {#if mode === "register"}
-        <label>
-          <span>Tipo de cuenta</span>
-          <select bind:value={role}>
-            {#each ROLES as r}
-              <option value={r}>{r}</option>
-            {/each}
-          </select>
-        </label>
-      {/if}
 
       {#if error}
         <p class="auth-error">{error}</p>

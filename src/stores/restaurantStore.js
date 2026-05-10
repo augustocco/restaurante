@@ -176,7 +176,9 @@ function createRestaurantStore() {
       update(s => ({ ...s, session: null, activeTab: "menus" }));
     },
 
-    async register(name, email, password, role) {
+    async register(name, email, password, role = "Cliente") {
+      // El registro público solo crea Clientes — roles privilegiados solo los crea el Administrador
+      role = "Cliente";
       const { data: existing, error: checkError } = await supabase
         .from(TABLE)
         .select("id")
